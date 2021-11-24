@@ -11,8 +11,23 @@ services:
       source: ./nginx/nginx.conf
       target: /etc/nginx/nginx.conf
 
-  flask-app:
+  service1:
     container_name: service1
     image: service1:latest
     build: ./service1
+
+  service2:
+    container_name: service2
+    image: service2:latest
+    build: ./service2
+
+  service3:
+    container_name: service3
+    image: service3:latest
+    build: ./service3
+
+  service4:
+    container_name: service4
+    image: service4:latest
+    build: ./service4
 
