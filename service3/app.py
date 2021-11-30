@@ -6,20 +6,22 @@ app = Flask(__name__)
 
 class roll:
     def rolling():
-        value=random.randint(1,6)
-        return value  
+        value=random.randint(1,3)
+        if value == 1:
+            result = "1"
+        elif value == 2:
+            result = "2"
+        elif value == 3:
+            result = "3"
+        return result  
 
-@app.route("/player", methods=["POST"])
-def player():
-    name= request.data.decode('utf-8')
+@app.route("/number", methods=["GET"])
+def number():
     attempt1=roll.rolling()
-    attempt2=roll.rolling()
-    attempt3=roll.rolling()
-    attempt4=roll.rolling()
-    attempt5=roll.rolling()
-    value={0: name, 1:attempt1, 2: attempt2, 3: attempt3, 4: attempt4, 5: attempt5}
-    return jsonify(value)
+    #value=str(attempt1)
+    value=str(attempt1)
+    return Response(value)
 
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=5000, debug=True)
+    app.run(host="0.0.0.0", port=5002, debug=True)
