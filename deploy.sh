@@ -3,8 +3,7 @@ sudo apt update
 sudo apt install python3
 sudo apt install python3-pip
 
-pip install pytest
-pip intsall pytest-cov
+pip3 install -r test_requirements.txt
 
 
 docker-compose up -d
