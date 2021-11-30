@@ -3,7 +3,8 @@ sudo apt update
 sudo apt install python3
 sudo apt install python3-pip
 
-
+pip install pytest
+pip intsall pytest-cov
 
 
 docker-compose up -d
@@ -16,4 +17,4 @@ docker-compose logs service3
 docker-compose logs service4
 docker-compose down --rmi all
 
-docker system prune -a -y
+python3 -m pytest --cov=app
