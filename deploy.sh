@@ -1,4 +1,16 @@
 #!/bin/bash
+
+cd service1
+pytest --cov=app 
+cd service2
+pytest --cov=app 
+cd service3
+pytest --cov=app 
+cd service4
+pytest --cov=app 
+
+cd
+
 docker-compose up -d
 docker-compose ps
 docker-compose logs nginx
