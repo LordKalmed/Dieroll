@@ -16,4 +16,6 @@ docker-compose logs service3
 docker-compose logs service4
 docker-compose down --rmi all
 
+cd /home/angus
+ansible-playbook -i inventory.yaml playbook.yaml
 

@@ -3,6 +3,7 @@ sudo apt install python3-pip
 
 pip install -r test_requirements.txt 
 pip3 install flask flask-testing pytest pytest-cov requests
+pip install pytest-cov
 
 cd service1
 pytest --cov=app --cov-report term-missing --cov-report html:cov_service1_html
