@@ -5,6 +5,7 @@ sudo apt install python3-pip
 
 pip3 install -r test_requirements.txt
 
+docker system prune -a -f
 docker-compose build
 docker-compose up -d
 sleep 10
@@ -19,6 +20,6 @@ docker-compose push
 
 
 
-cd /home/angus
+
 ansible-playbook -i inventory.yaml playbook.yaml
 

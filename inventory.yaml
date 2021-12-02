@@ -1,0 +1,26 @@
+all:
+  hosts:
+    34.105.183.54:
+    34.105.172.215:
+    34.142.86.137:
+  vars:
+    ansible_user: jenkins
+    ansible_ssh_private_key_file: "~/.ssh/id_rsa"
+    ansible_ssh_common_args: '-o StrictHostKeyChecking=no'
+
+swarm:
+  hosts:
+    34.105.172.215:
+    34.142.86.137:
+  vars:
+    ansible_user: jenkins
+    ansible_ssh_private_key_file: "~/.ssh/id_rsa"
+    ansible_ssh_common_args: '-o StrictHostKeyChecking=no'
+
+server:
+  hosts:
+    34.105.183.54:
+  vars:
+    ansible_user: jenkins
+    ansible_ssh_private_key_file: "~/.ssh/id_rsa"
+    ansible_ssh_common_args: '-o StrictHostKeyChecking=no'
