@@ -15,3 +15,15 @@
       name: docker
       state: latest
       update_cache: true
+
+- hosts: server
+  tasks: 
+  - name: "Install Nginx on {{ inventory_hostname }}"
+    apt:
+      name: nginx
+      state: latest
+      update_cahce: true
+  - name: "Start Nginx on {{ inventory_hostname }}"
+    service:
+      name: nginx
+      state: started
