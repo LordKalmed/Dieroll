@@ -21,7 +21,7 @@
 - hosts: worker
   become: true
   roles:
-  - swarm
+  - worker
 
 - hosts: server
   become: true

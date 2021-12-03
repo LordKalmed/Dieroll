@@ -9,8 +9,8 @@
 - name: "Config nginx"
   become: true
   copy:
-    src: $pwd/nginx/nginx.conf
-    remote_dest: 34.142.86.137/etc/nginx/nginx.conf
+    src: nginx.conf
+    remote_dest: etc/nginx/nginx.conf
   register: nginx_config
     
 - name: "Start Nginx on server"
