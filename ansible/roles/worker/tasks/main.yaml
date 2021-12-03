@@ -1,9 +1,9 @@
 # tasks for docker swarm nodes
 
 
-- name: "Add worker to {{ inventory_hostname }} to swarm}}
+- name: "Add worker {{ inventory_hostname }} to swarm}}
   docker_swarm:
     state: join
     advertise_addr: node2
-    join_token: "{{ hostvars['node1']['swarm_info']['swarm_facts']['JoinTokens']['Worker'] }}"
+    join_token: "{{ hostvars['node1']['swarm_info']['JoinTokens'] }}"
     remote_addrs: [ 'node1']

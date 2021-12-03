@@ -5,7 +5,7 @@
     state: present
 
 - name: "Get Swarm Info"
-  docker_swarm_info:
+  shell: docker swarm join-token worker
   register: swarm_info
 
 
