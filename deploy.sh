@@ -22,4 +22,5 @@ docker-compose down --rmi all
 
 cd ansible
 ansible-playbook -i inventory.yaml playbook.yaml
+cd ..
 

@@ -9,46 +9,17 @@
       msg: "{{ ping_info }}"
 
 - hosts: swarm
-  tasks:
-  - name: "Install Docker {{ inventory_hostname }}"
-    shell:
-      cmd: curl https://get.docker.com | bash
-
-  - name: "Assign Jenkins to Docker group {{ inventory_hostname }}"
-    become: true
-    user:
-      name: jenkins
-      groups: docker
-      append: yes
-
+  roles:
+  - docker
 
 - hosts: manager
+  roles:
+  - manager
 
-
+- hosts: worker
+  roles:
+  - swarm
 
 - hosts: server
-  tasks: 
-  - name: "Install Nginx on {{ inventory_hostname }}"
-    become: true
-    apt:
-      name: nginx
-      state: latest
-      update_cache: true
-
-  - name: "Config nginx"
-    become: true
-    copy:
-      src: $pwd/nginx/nginx.conf
-      remote_dest: /etc/nginx/nginx.conf
-    register: nginx_config
-    
-  - name: "Start Nginx on {{ inventory_hostname }}"
-    service:
-      name: nginx
-      state: started
-  
-  - name: "Restart Nginx on {{ inventory_hostname }}"
-    service:
-      name: nginx
-      state: restarted
-    when: nginx_config.changed == true
+  roles:
+  - nginx 
