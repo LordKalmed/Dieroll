@@ -15,6 +15,7 @@
       cmd: curl https://get.docker.com | bash
 
   - name: "Assign Jenkins to Docker group {{ inventory_hostname }}"
+    become: true
     user:
       name: jenkins
       groups: docker
