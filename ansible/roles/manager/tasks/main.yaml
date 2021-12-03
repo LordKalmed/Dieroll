@@ -1,0 +1,21 @@
+#initialise the swarm manager and pull images
+
+- name: "Initialise the Swarm"
+  docker_swarm:
+    state: present
+
+- name: Get the worker join-token.
+  shell: docker swarm join-token -q worker
+  register: docker_worker_token
+
+
+- name: "Madam Jira on manager"
+  docker_stack:
+    state: present
+    name: madam-jira
+    compose:
+      - /home/jenkins/docker-compose.yaml
+
+- name: "Get swarm info"
+  docker_swarm_info:
+  register: swarm_info

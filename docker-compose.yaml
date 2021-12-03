@@ -1,33 +1,26 @@
-version: "4.0"
+version: "3.8"
 services:
-  nginx:
-    container_name: nginx
-    image: nginx:alpine
-    ports:
-    - target: 80
-      published: 80
-    volumes:
-    - type: bind
-      source: ./nginx/nginx.conf
-      target: /etc/nginx/nginx.conf
 
   service1:
     container_name: service1
-    image: service1:latest
+    image: lordkalmed/service1:latest
+    ports:
+    - target: 5000
+      published: 5000
     build: ./service1
 
   service2:
     container_name: service2
-    image: service2:latest
+    image: lordkalmed/service2:latest
     build: ./service2
 
   service3:
     container_name: service3
-    image: service3:latest
+    image: lordkalmed/service3:latest
     build: ./service3
 
   service4:
     container_name: service4
-    image: service4:latest
+    image: lordkalmed/service4:latest
     build: ./service4
 

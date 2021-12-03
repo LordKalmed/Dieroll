@@ -1,0 +1,25 @@
+#deploy nginx
+
+- name: "Install Nginx on Nginx server"
+  apt:
+    name: nginx
+    state: latest
+    update_cache: true
+
+- name: "Config nginx"
+  become: true
+  copy:
+    src: nginx.conf
+    remote_dest: etc/nginx/nginx.conf
+  register: nginx_config
+    
+- name: "Start Nginx on server"
+  service:
+    name: nginx
+    state: started
+  
+- name: "Restart Nginx on server"
+  service:
+    name: nginx
+    state: restarted
+  when: nginx_config.changed == true

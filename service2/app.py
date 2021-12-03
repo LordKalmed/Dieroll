@@ -2,7 +2,8 @@ from flask import Flask, request, redirect, Response, jsonify
 import requests
 import random
 
-app = Flask(__name__)
+
+app=Flask(__name__)
 
 class roll:
     def rolling():
@@ -12,19 +13,21 @@ class roll:
 @app.route("/comp", methods=["GET"])
 def comp():
     attempt1=roll.rolling()
-    attempt2=roll.rolling()
-    attempt3=roll.rolling()
-    attempt4=roll.rolling()
-    attempt5=roll.rolling()
-    value={1:attempt1, 2: attempt2, 3: attempt3, 4: attempt4, 5: attempt5}
-    return jsonify(value)
+    #value=str(attempt1)
+    value=str(attempt1)
+    return Response(value)
 
- 
-
-
+#@app.route("/comp", methods=["GET"])
+#def comp():
+#    attempt1=roll.rolling()
+#    attempt3=roll.rolling()
+#    attempt4=roll.rolling()
+#    attempt5=roll.rolling()
+#    value={1:attempt1, 2: attempt2, 3: attempt3, 4: attempt4, 5: attempt5}
+#    return jsonify(value)
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=5000, debug=True)
+    app.run(host="0.0.0.0",port=5001, debug=True)
 
 
 

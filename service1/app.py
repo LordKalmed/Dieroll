@@ -1,10 +1,14 @@
-from flask import Flask, redirect, render_template, request
+from flask import Flask, redirect, render_template, request, jsonify
+import requests
+import json
 
 app=Flask(__name__)
 
 @app.route("/")
 def homepage():
-    return render_template('home.html')
+    rec=requests.get("http://service4:5003/score")
+    record=rec.text
+    return render_template('home.html', records=record)
     
 
 #results will get values from service 2 and 3 for name.objects
