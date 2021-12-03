@@ -4,12 +4,18 @@
   docker_swarm:
     state: present
 
-- name: "Get Swarm Info"
-  shell: docker swarm join-token worker
-  register: swarm_info
+#- name: "Get Swarm Info"
+#  docker_swarm_info:
+#  register: swarm_info
+
+- name: Get the worker join-token.
+  shell: docker swarm join-token -q worker
+  with_items:
+    - "{{ groups['manager'] }}"
+  register: docker_worker_token
 
 
-- name: "Madam Jira on {{ inventory_hostname }} manager"
+- name: "Madam Jira on manager"
   docker_stack:
     state: present
     name: madam-jira
