@@ -8,10 +8,13 @@
   docker_swarm:
     state: join
     advertise_addr: node2
-    join_token: "{{ hostvars ['node1']['swarm_info']['swarm_facts']['JoinTokens']['Worker'] }}"
+    join_token: SWMTKN-1-03k5ce69t900gqgu5btfry38ao7pqj58l65e51ffr5wi5a9zkj-esak60aoy1bfksbdiesqk9lwp
     remote_addrs: [ 'node1:2377']
 
 - name: join node to the cluster
     shell: docker swarm join --token {{ hostvars[item]['docker_worker_token'] }} {{ managerip }}:2377
     with_items:
       - "{{ groups['manager'] }}"
+
+
+#join_token "{{ hostvars ['node1']['swarm_info']['swarm_facts']['JoinTokens']['Worker'] }}"
