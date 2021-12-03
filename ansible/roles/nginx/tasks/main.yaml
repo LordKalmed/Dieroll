@@ -1,10 +1,10 @@
 #deploy nginx
 
 - name: "Install Nginx on Nginx server"
-    apt:
-      name: nginx
-      state: latest
-      update_cache: true
+  apt:
+    name: nginx
+    state: latest
+    update_cache: true
 
 - name: "Config nginx"
   become: true
