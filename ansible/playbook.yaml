@@ -14,10 +14,9 @@
     shell:
       cmd: curl https://get.docker.com | bash
 
-  - name: "assign Jenkins to Docker group {{ inventory_hostname }}"
-    ansible.builtin.user:
+  - name: "Assign Jenkins to Docker group {{ inventory_hostname }}"
+    user:
       name: jenkins
-      shell: /bin/bash
       groups: docker
       append: yes
 
