@@ -1,8 +1,8 @@
 all:
   hosts:
-    34.105.183.54:
-    34.105.172.215:
-    34.142.86.137:
+    node1:
+    node2:
+    nginx:
   vars:
     ansible_user: jenkins
     ansible_ssh_private_key_file: "~/.ssh/id_rsa"
@@ -10,8 +10,8 @@ all:
 
 swarm:
   hosts:
-    34.105.172.215:
-    34.142.86.137:
+    node1:
+    node2:
   vars:
     ansible_user: jenkins
     ansible_ssh_private_key_file: "~/.ssh/id_rsa"
@@ -19,7 +19,7 @@ swarm:
 
 manager: 
   hosts:
-    34.142.86.137:
+    node1:
   vars:
     ansible_user: jenkins
     ansible_ssh_private_key_file: "~/.ssh/id_rsa"
@@ -27,7 +27,7 @@ manager:
 
 worker: 
   hosts:
-    34.105.172.215:
+    node2:
   vars:
     ansible_user: jenkins
     ansible_ssh_private_key_file: "~/.ssh/id_rsa"
