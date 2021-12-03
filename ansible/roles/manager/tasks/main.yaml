@@ -12,6 +12,7 @@
   copy:
     src: /docker-compose.yaml
     dest: /etc/docker-compose.yaml
+    remote_src: true
 
 - name: "Madam Jira on manager"
   docker_stack:
