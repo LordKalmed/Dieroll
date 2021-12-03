@@ -15,11 +15,11 @@ docker-compose logs service1
 docker-compose logs service2
 docker-compose logs service3
 docker-compose logs service4
-docker-compose push lordkalmed/service1:1.0 lordkalme/service2:1.0 lordkalmed/service3:1.0 lordkalmed/service4:1.0
+docker-compose push 
 docker-compose down --rmi all
 
 
 
-
+cd ansible
 ansible-playbook -i inventory.yaml playbook.yaml
 
