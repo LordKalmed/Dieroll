@@ -4,10 +4,6 @@
   docker_swarm:
     state: present
 
-- name: "Get swarm info"
-  docker_swarm_info:
-  register: swarm_info
-
 - name: Get the worker join-token.
   shell: docker swarm join-token -q worker
   with_items:
@@ -21,3 +17,7 @@
     name: madam-jira
     compose:
       - /home/jenkins/docker-compose.yaml
+
+- name: "Get swarm info"
+  docker_swarm_info:
+  register: swarm_info
