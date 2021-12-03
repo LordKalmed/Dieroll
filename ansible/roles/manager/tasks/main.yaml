@@ -8,9 +8,14 @@
   docker_swarm_info:
   register: swarm_info
 
-- name: "Deploy App"
+- name: "Get the docker-compose file"
+  copy:
+    src: /docker-compose.yaml
+    dest: /etc/docker-compose.yaml
+
+- name: "Madam Jira on manager"
   docker_stack:
     state: present
     name: madam-jira
     compose:
-      - /home/jenkins/docker-compose.yaml
+      - /etc/docker-compose.yaml
