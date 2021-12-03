@@ -1,0 +1,9 @@
+# tasks for docker swarm nodes
+
+
+- name: "Add worker to {{ inventory_hostname }} to swarm}}
+  docker_swarm:
+    state: join
+    advertise_addr: madam-jira-worker
+    join_token: "{{ hostvars['madam-jira-manager']['swarm_info']['swarm_facts']['JoinTokens']['Worker'] }}"
+    remote_addrs: [ 'madam-jira-manager:2377']

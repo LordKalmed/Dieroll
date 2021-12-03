@@ -22,6 +22,10 @@
       append: yes
 
 
+- hosts: manager
+
+
+
 - hosts: server
   tasks: 
   - name: "Install Nginx on {{ inventory_hostname }}"
@@ -34,8 +38,8 @@
   - name: "Config nginx"
     become: true
     copy:
-      src: nginx/nginx.conf
-      dest: /etc/nginx/nginx.conf
+      src: $pwd/nginx/nginx.conf
+      remote_dest: /etc/nginx/nginx.conf
     register: nginx_config
     
   - name: "Start Nginx on {{ inventory_hostname }}"

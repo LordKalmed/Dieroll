@@ -1,0 +1,16 @@
+#initialise the swarm manager and pull images
+
+- name: "Initialise the Swarm"
+  docker_swarm:
+    state: present
+
+- name: "Get Swarm Info"
+  docker_swarm_info:
+  register: swarm_info
+
+- name: "Deploy App"
+  docker_stack:
+    state: present
+    name: madam-jira
+    compose:
+      - /home/jenkins/docker-compose.yaml
