@@ -8,15 +8,15 @@
   docker_swarm_info:
   register: swarm_info
 
-- name: "Get the docker-compose file"
-  copy:
-    src: /docker-compose.yaml
-    dest: /etc/docker-compose.yaml
-    remote_src: true
+# name: "Get the docker-compose file"
+#  copy:
+#    src: ~/docker-compose.yaml
+#    dest: /etc/docker-compose.yaml
+#    remote_src: true
 
 - name: "Madam Jira on manager"
   docker_stack:
     state: present
     name: madam-jira
     compose:
-      - /etc/docker-compose.yaml
+      - /home/jenkins/docker-compose.yaml

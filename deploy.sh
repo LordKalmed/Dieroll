@@ -19,7 +19,7 @@ docker-compose push
 docker-compose down --rmi all
 
 
-
+scp docker-compose.yaml node1:/home/jenkins/docker-compose.yaml
 cd ansible
 ansible-playbook -i inventory.yaml playbook.yaml
 cd ..
