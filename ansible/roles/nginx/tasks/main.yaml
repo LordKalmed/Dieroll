@@ -1,5 +1,6 @@
-- name: "Install Nginx on {{ inventory_hostname }}"
-    become: true
+#deploy nginx
+
+- name: "Install Nginx on Nginx server"
     apt:
       name: nginx
       state: latest
@@ -12,12 +13,12 @@
     remote_dest: 34.142.86.137/etc/nginx/nginx.conf
   register: nginx_config
     
-- name: "Start Nginx on {{ inventory_hostname }}"
+- name: "Start Nginx on server"
   service:
     name: nginx
     state: started
   
-- name: "Restart Nginx on {{ inventory_hostname }}"
+- name: "Restart Nginx on server"
   service:
     name: nginx
     state: restarted
