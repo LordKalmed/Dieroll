@@ -9,7 +9,7 @@
   register: swarm_info
 
 
-- name: "Madam Jira on manager"
+- name: "Madam Jira on {{ inventory_hostname }} manager"
   docker_stack:
     state: present
     name: madam-jira
