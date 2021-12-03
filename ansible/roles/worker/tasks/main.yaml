@@ -6,4 +6,4 @@
     state: join
     advertise_addr: node2
     join_token: "{{ hostvars['node1']['swarm_info']['swarm_facts']['JoinTokens']['Worker'] }}"
-    remote_addrs: [ 'node1:2377']
+    remote_addrs: [ 'node1']
