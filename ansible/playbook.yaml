@@ -9,17 +9,21 @@
       msg: "{{ ping_info }}"
 
 - hosts: swarm
+  become: true
   roles:
   - docker
 
 - hosts: manager
+  become: true
   roles:
   - manager
 
 - hosts: worker
+  become: true
   roles:
   - swarm
 
 - hosts: server
+  become: true
   roles:
   - nginx 
