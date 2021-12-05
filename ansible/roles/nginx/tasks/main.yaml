@@ -11,10 +11,6 @@
     src: files/nginx.conf
     dest: /etc/nginx/nginx.conf
   register: nginx_config
-
-- name: Output of copy
-    debug:
-      msg: "{{nginx_config}}"
     
 - name: "Start Nginx on server"
   service:
