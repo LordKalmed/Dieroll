@@ -3,6 +3,7 @@
 
 
 - name: "Update swarm {{ inventory_hostname }} to swarm}}
-  command:
-    cmd: 'docker service update --replicas 3 madam-jira'
+  ansible.builtin.shell:  
+    cmd: docker service update --replicas 3 madam-jira
+
 
