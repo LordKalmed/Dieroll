@@ -16,7 +16,7 @@ pytest --cov=app --cov-report term-missing --cov-report html:cov_service3_html
 cd ..
 cd service4
 pytest --cov=app --cov-report term-missing --cov-report html:cov_service4_html
-
+cd ..
 
 docker system prune -a -f
 docker-compose build
