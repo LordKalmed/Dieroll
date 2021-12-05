@@ -6,5 +6,5 @@
 #  ansible.builtin.shell:  
 #    cmd: docker service update --replicas 3 madam-jira
 
-- name: update service 
-  command: docker service update
+#- name: update service 
+#  command: docker service update
