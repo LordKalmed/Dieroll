@@ -1,8 +1,8 @@
 # tasks for docker swarm nodes
 
-- name: "Initialise the Swarm"
-  docker_swarm:
-    state: present
+#- name: "Initialise the Swarm"
+#  docker_swarm:
+#    state: present
 
 #name: "Add worker {{ inventory_hostname }} to swarm}}
 #  command:
