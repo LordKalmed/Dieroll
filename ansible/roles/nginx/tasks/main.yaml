@@ -10,7 +10,7 @@
   become: true
   copy:
     src: nginx.conf
-    remote_dest: etc/nginx/nginx.conf
+    dest: etc/nginx/nginx.conf
   register: nginx_config
     
 - name: "Start Nginx on server"
