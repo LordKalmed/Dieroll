@@ -7,9 +7,8 @@
     update_cache: true
 
 - name: "Config nginx"
-  become: true
   copy:
-    src: files\nginx.confnginx.conf
+    src: files/nginx.conf
     dest: etc/nginx/nginx.conf
   register: nginx_config
     
