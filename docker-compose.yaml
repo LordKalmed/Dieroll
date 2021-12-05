@@ -4,6 +4,8 @@ services:
   service1:
     container_name: service1
     image: lordkalmed/service1:latest
+    deploy:
+      replicas: 3
     ports:
     - target: 5000
       published: 80
@@ -12,15 +14,21 @@ services:
   service2:
     container_name: service2
     image: lordkalmed/service2:latest
+    deploy:
+      replicas: 3
     build: ./service2
 
   service3:
     container_name: service3
     image: lordkalmed/service3:latest
+    deploy:
+      replicas: 3
     build: ./service3
 
   service4:
     container_name: service4
     image: lordkalmed/service4:latest
+    deploy:
+      replicas: 3
     build: ./service4
 
