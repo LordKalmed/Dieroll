@@ -7,10 +7,16 @@ app=Flask(__name__)
 
 class roll:
     def rolling():
-        value=random.randint(1,6)
-        return value  
+        value=random.randint(1,3)
+        if value == 1:
+            result = "red"
+        elif value == 2:
+            result = "blue"
+        elif value == 3:
+            result = "green"
+        return result  
 
-@app.route("/comp", methods=["GET"])
+@app.route("/colour", methods=["GET"])
 def comp():
     attempt1=roll.rolling()
     #value=str(attempt1)
