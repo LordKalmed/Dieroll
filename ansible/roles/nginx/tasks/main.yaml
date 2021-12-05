@@ -11,12 +11,7 @@
     src: nginx.conf
     dest: /etc/nginx/nginx.conf
   register: nginx_config
-    
-- name: "Start Nginx on server"
-  service:
-    name: nginx
-    state: started
-  
+      
 - name: "Restart Nginx on server"
   service:
     name: nginx

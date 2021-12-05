@@ -5,6 +5,19 @@ sudo apt install python3-pip
 
 pip3 install -r test_requirements.txt
 
+cd service1
+pytest --cov=app --cov-report term-missing --cov-report html:cov_service1_html
+cd ..
+cd service2
+pytest --cov=app --cov-report term-missing --cov-report html:cov_service2_html
+cd ..
+cd service3
+pytest --cov=app --cov-report term-missing --cov-report html:cov_service3_html
+cd ..
+cd service4
+pytest --cov=app --cov-report term-missing --cov-report html:cov_service4_html
+
+
 docker system prune -a -f
 docker-compose build
 docker-compose up -d
