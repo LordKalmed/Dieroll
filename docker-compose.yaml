@@ -6,7 +6,7 @@ services:
     image: lordkalmed/service1:latest
     ports:
     - target: 5000
-      published: 5000
+      published: 80
     build: ./service1
 
   service2:

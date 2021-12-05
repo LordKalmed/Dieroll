@@ -23,6 +23,11 @@
   roles:
   - worker
 
+- hosts: manager
+  become: true
+  roles:
+  - swarm_update
+
 - hosts: server
   become: true
   roles:
