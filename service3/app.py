@@ -20,7 +20,7 @@ def number():
     attempt1=roll.rolling()
     #value=str(attempt1)
     value=str(attempt1)
-    return Response(value)
+    return Response(value, mimetype="text/plain")
 
 
 if __name__ == "__main__":

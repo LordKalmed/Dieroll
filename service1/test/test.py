@@ -1,12 +1,17 @@
-from service1 import app
-
-def test_home():
-    assert #render template = correct
-
-def test_player():
-
-def test_comp():
-
-def test_results():
+from unittest.mock import patch
+from flask import url_for
+from flask_testing import TestCase
+from app import app
+import unittest
+import requests_mock
+from typing import Text
 
 
+
+class TestBase(TestCase):
+    def create_app(self):
+        return app
+
+    def test_homepage(self):
+        response = self.client.get(url_for('number'))
+        self.assertEqual(response.status_code, 200)

@@ -13,10 +13,11 @@ class TestBase(TestCase):
 
     def test_number(self):
         response = self.client.get(url_for('number'))
-        if response == "1":
+        result = response
+        if result == "1":
             self.assertIn(b"1", response.data)
-        #if self.assertIn(b"2", response.data):
-            #pass
-        #if self.assertIn(b"3", response.data):
-            #pass
+        if result == "2":
+            self.assertIn(b"2", response.data)
+        if result == "3":
+            self.assertIn(b"3", response.data)
 

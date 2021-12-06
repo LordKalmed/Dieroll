@@ -17,11 +17,11 @@ class roll:
         return result  
 
 @app.route("/colour", methods=["GET"])
-def comp():
+def colour():
     attempt1=roll.rolling()
     #value=str(attempt1)
     value=str(attempt1)
-    return Response(value)
+    return Response(value, mimetype="text/plain")
 
 #@app.route("/comp", methods=["GET"])
 #def comp():

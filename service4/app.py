@@ -5,10 +5,6 @@ import random
 
 app = Flask(__name__)
 
-class roll:
-    def rolling():
-        value=random.randint(1,6)
-        return value  
 
 @app.route("/score", methods=["POST", "GET"])
 def game():
