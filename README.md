@@ -29,37 +29,36 @@ In order to manage the various tasks for this project, a Jira project was create
 1. have a simple web based fortune teller
 2. Link 4 services to each other in containers
 3. Create a fully automated jenkins pipeline.
-4. Crewate an enviroment capable of live updates
-5. 
-6. 
+4. Create an enviroment capable of live updates
+
 
 
 ## 4-Design notes
-1. The final product will be a web based flask app. The app will be built up with 4 flask services. The entire pipeline....
+1. The final product will be a web based flask app. The app will be built up with 4 flask services. The entire pipeline must be automated for full CI/CD flow.
 
 2. Services 
     1. The outline of all 4 services:
     The 4 flask services will work togther. Service 1 will act as the display service while service 2 and 3 are simple GET Api's. Service 4 will GET from service 2 and 3 and coimbine the results before sending the results to service1 for display.
 
-    ![ERD1](images/erd-Containers.drawio.png)
+![ERD1](images/erd-Containers.drawio.png)
 
     2. Service 1: 
     Service 1 will function as a simple Flask app, rendering the information from service 4 into sopmething a user can interact with.
-    ![ERD1](images/erd-Service 1.drawio.png)
+![ERD1](images/erd-Service 1.drawio.png)
 
     3. Service 2 and 3:
     Services 2 and 3 each randomly determine a number and assign a colour or number to the service based upon the random result. This new value (colour/number) are then sent to service 4 for processing. 
-    ![ERD1](images/erd-Service 2_3.drawio.png)
+![ERD1](images/erd-Service 2_3.drawio.png)
 
     4. Service 4:
     Service 4 taken the results from service 2 and 3 and combines them into a new fortune. This fortune is then sent to service 1 for display.
-    ![ERD1](images/erd-Service 4.drawio.png)
+![ERD1](images/erd-Service 4.drawio.png)
 
 
     5. pytest-cov
     Each service had basic tests built for it to ensure a functional app when deployment came.
-    ![ERD1](images/service2test.png)
-    ![ERD1](images/service3test.png)
+![ERD1](images/service2test.png)
+![ERD1](images/service3test.png)
 
 3. Containerisation
 The purpose of buildiung each app as a seperate image is to allow us to use docker swarm to deploy multiple copies of the app for load balancing and redundency. Below is an outline of how the final service should function when deployed.
@@ -70,12 +69,12 @@ The purpose of buildiung each app as a seperate image is to allow us to use dock
 
     1. Jenkins
     Jenkins would serve as our CI server, taking new code and testing it before passing the job to ansible for deployment.
-    ![ERD1](images/jenkins.png)
+![ERD1](images/jenkins.png)
 
 
     2. Ansible
     Ansible serves as our CD server, taking the project details from Jenkins and deploying it to our various servers.
-    ![ERD1](images/ansible.png)
+![ERD1](images/ansible.png)
 
 5. tools used
 IDE= Visual studio code
@@ -90,7 +89,7 @@ Modules = Flask, Mysql.connector, pytest, pytest-cov, mock-testing, requests
 ## 5-Pipeline
 The pipeline for this project follows a specific path which is outlined below:
 
- ![ERD1](images/erd-pipeline.drawio.png)
+![ERD1](images/erd-pipeline.drawio.png)
 
 1. As new code is created from a user IDE it is uploaded to Github. This triggers the second step. 
 2. Once Github detects a new commit it will send a webhook to the Jenkins server and initiate a new build job.
