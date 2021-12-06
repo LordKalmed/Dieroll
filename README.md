@@ -42,20 +42,20 @@ In order to manage the various tasks for this project, a Jira project was create
 
 ![ERD1](images/erd-Containers.drawio.png)
 
-    2. Service 1: 
+2. Service 1: 
     Service 1 will function as a simple Flask app, rendering the information from service 4 into sopmething a user can interact with.
-![ERD1](images/erd-Service 1.drawio.png)
+![ERD1](images/erd-Service1.drawio.png)
 
-    3. Service 2 and 3:
+3. Service 2 and 3:
     Services 2 and 3 each randomly determine a number and assign a colour or number to the service based upon the random result. This new value (colour/number) are then sent to service 4 for processing. 
-![ERD1](images/erd-Service 2_3.drawio.png)
+![ERD1](images/erd-Service2_3.drawio.png)
 
-    4. Service 4:
+4. Service 4:
     Service 4 taken the results from service 2 and 3 and combines them into a new fortune. This fortune is then sent to service 1 for display.
-![ERD1](images/erd-Service 4.drawio.png)
+![ERD1](images/erd-Service4.drawio.png)
 
 
-    5. pytest-cov
+5. pytest-cov
     Each service had basic tests built for it to ensure a functional app when deployment came.
 ![ERD1](images/service2test.png)
 ![ERD1](images/service3test.png)
